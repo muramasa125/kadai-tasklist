@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+(1..30).each do |number|
+  if number <= 10
+    Task.create(content: 'test content' + number.to_s, status: '未着手')
+  elsif number <= 20
+    Task.create(content: 'test content' + number.to_s, status: '着手')
+  else
+    Task.create(content: 'test content' + number.to_s, status: '完了')
+  end
+  sleep(0.5)
+end

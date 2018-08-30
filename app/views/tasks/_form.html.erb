@@ -1,19 +1,25 @@
-<%= form_for(task) do |f| %>
-  <% if task.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% task.errors.full_messages.each do |task| %>
-          <li><%= task %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <%= f.label :content, 'タスク' %>
-  <%= f.text_field :content %>
-
-  <%= select :task, :status, [['未着手','未着手'],['着手','着手'],['中断','中断'],['完了','完了']] %>
-  <%=  %>
-
-  <%= f.submit '登録' %>
-<% end %>
+<div class="row">
+  <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-sm-offset-2 col-lg-offset-3 col-lg-6 col-lg-offset-6">
+    <%= form_for(task) do |f| %>
+      <% if task.errors.any? %>
+        <div class="alert alert-warning">
+          <ul>
+            <% task.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="form-group">
+        <%= f.label :content, 'タスク' %>
+        <%= f.text_field :content, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= select :task, :status, [['未着手','未着手'],['着手','着手'],['中断','中断'],['完了','完了']], class: 'form-control' %>
+      </div>
+      
+      <%= f.submit '登録', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
