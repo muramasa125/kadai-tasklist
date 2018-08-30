@@ -13,5 +13,5 @@
   else
     Task.create(content: 'test content' + number.to_s, status: '完了')
   end
-  sleep(0.5)
+  #sleep(0.5)
 end
