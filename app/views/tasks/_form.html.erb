@@ -1,0 +1,19 @@
+<%= form_for(task) do |f| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% task.errors.full_messages.each do |task| %>
+          <li><%= task %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.label :content, 'タスク' %>
+  <%= f.text_field :content %>
+
+  <%= select :task, :status, [['未着手','未着手'],['着手','着手'],['中断','中断'],['完了','完了']] %>
+  <%=  %>
+
+  <%= f.submit '登録' %>
+<% end %>
